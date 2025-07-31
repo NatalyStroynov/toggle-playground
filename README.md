@@ -5,7 +5,7 @@ This project demonstrates a powerful and customizable `ToggleComponent` implemen
 ## 🛠️ Getting Started
 
 ```bash
-git clone https://github.com/your-username/toggle-playground.git
+git clone https://github.com/NatalyStroynov/toggle-playground.git
 cd toggle-playground
 npm install
 ng serve
