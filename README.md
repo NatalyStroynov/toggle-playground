@@ -32,35 +32,54 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To run the Toggle Playground:
 
-### Code scaffolding
+1. First build the toggle library:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+   ```bash
+   ng build uicomponents
+   ```
 
-### Build
+2. Then run the dev server:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   ```bash
+   ng serve
+   ```
 
-### Running unit tests
+3. Navigate to `http://localhost:4200/` — the PlaygroundComponent will render the ToggleComponent with multiple examples.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-### Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The application will automatically reload if you change any of the source files.
 
 ---
 
 ## 🧱 Project Structure
 
 ```bash
-src/
-├── app/
-│   ├── playground/           # Visual examples for ToggleComponent
-│   │   ├── playground.component.ts/html/scss
-│   └── ui-toggle/ (library)  # Standalone ToggleComponent
-│       ├── toggle.component.ts/html/scss
+root/
+├── projects/
+│   └── uicomponents/              # Angular library
+│       └── src/lib/
+│           └── components/
+│               └── toggle/
+│                   ├── toggle.component.ts
+│                   ├── toggle.component.html
+│                   ├── toggle.component.scss
+│                   └── toggle.component.spec.ts
+│           ├── uicomponents.component.ts
+│           ├── uicomponents.component.spec.ts
+│           ├── uicomponents.service.ts
+│           └── uicomponents.service.spec.ts
+├── src/
+│   └── app/
+│       ├── playground/
+│       │   ├── playground.component.ts
+│       │   ├── playground.component.html
+│       │   ├── playground.component.scss
+│       │   └── playground.component.spec.ts
+│       ├── app.component.ts
+│       ├── app.component.html
+│       ├── app.component.scss
+│       └── app.component.spec.ts
 ```
 
 ---
@@ -68,8 +87,6 @@ src/
 ## 🎯 Features Demonstrated
 
 ### ✅ Label + Help Icon
-
-Supports a label and optional help tooltip.
 
 ```html
 <ui-toggle
@@ -124,7 +141,9 @@ Supports a label and optional help tooltip.
 ```ts
 selectedId = 2;
 options = [1, 2, 3, 4, 5];
+```
 
+```html
 <ui-toggle
   *ngFor="let id of options"
   [label]="'Option ' + id"
@@ -157,6 +176,35 @@ onChange() {
 
 ---
 
+### 📦 Using ToggleComponent in Other Projects
+
+### 🔨 Generate the component (inside a library or app)
+
+```bash
+ng generate component toggle --standalone --export --flat --project=uicomponents
+```
+
+> This creates a standalone component and exports it directly from the library (no folder nesting).
+
+### 🧩 Import and Use
+
+Once built, the toggle component can be used like this:
+
+```ts
+import { UiToggleComponent } from 'uicomponents';
+
+@Component({
+  standalone: true,
+  imports: [CommonModule, UiToggleComponent],
+  template: `<ui-toggle label="Enable feature" [(checked)]="enabled"></ui-toggle>`
+})
+export class SomeComponent {
+  enabled = false;
+}
+```
+
+---
+
 ## 🧰 Built With
 
 * Angular 17 standalone components
@@ -166,10 +214,9 @@ onChange() {
 
 ---
 
-
 ## 👩‍💻 Author
 
-Built with ❤️ Nataly
+Built with ❤️ by **Nataly**
 
 ---
 
