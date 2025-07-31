@@ -1,0 +1,36 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #f2f4f6;
+  border-bottom: 1px solid #ddd;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.app-title .logo-link {
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #333;
+}
+
+.app-nav .nav-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.app-content {
+  padding: 24px;
+}

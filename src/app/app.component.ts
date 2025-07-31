@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { PlaygroundComponent } from './playground/playground.component';
+import { ToggleDemoComponent } from './toggle-demo/toggle-demo.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,PlaygroundComponent],
+  imports: [RouterModule, RouterOutlet,ToggleDemoComponent,PlaygroundComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

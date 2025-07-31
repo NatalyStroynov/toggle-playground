@@ -1,180 +1,67 @@
-<h2>Examples</h2>
-<h3 class="example-title">Toggle with label and help icon</h3>
-<section class="example-card">
+<div class="playground-layout">
+  <div class="toggle-preview">
+   
 
-    <div class="example-toggle">
-        <ui-toggle label="Lorem ipsum dolor sit amat" [showHelp]="true" helpTooltip="More info"
-            [(checked)]="checked1"></ui-toggle>
-    </div>
-</section>
+    <ui-toggle
+      [label]="label"
+      [showHelp]="showHelp"
+      [helpTooltip]="helpTooltip"
+      [truncateLabel]="truncateLabel"
+      [labelSpacing]="labelSpacing"
+      [verticalSpacing]="verticalSpacing"
+      [labelAlign]="labelAlign"
+      [fullClickable]="fullClickable"
+      [(checked)]="checked"
+    ></ui-toggle>
 
-<!-- 🧾 Wrapping + Truncation Section -->
-<h3 class="example-title">Label Wrapping & Truncation</h3>
-<div class="example-row">
-
-    <!-- Wrapping -->
-    <section class="example-card">
-        <ui-toggle label="Lorem ipsum dolor sit amet consectetur elit nec" [(checked)]="checked2"></ui-toggle>
-        <div class="example-caption">Label Wrapping</div>
-    </section>
-
-    <!-- Truncation -->
-    <section class="example-card truncate-card">
-        <ui-toggle label="Lorem ipsum dolor sit amet consectetur elit nec" [truncateLabel]="true"
-            [(checked)]="checked3"></ui-toggle>
-        <div class="example-caption">Label Truncation</div>
-    </section>
-</div>
-
-<h3 class="example-title">Spacing</h3>
-
-<!-- 🔹 Toggle–Label spacing -->
-<p class="example-subtitle">Toggle–Label spacing</p>
-<div class="example-row">
-    <!-- Default spacing -->
-    <section class="example-card">
-        <ui-toggle label="Lorem ipsum dolor sit amat" [(checked)]="checkedSpacing1"></ui-toggle>
-        <div class="example-caption">Default: min 16px</div>
-    </section>
-
-    <!-- Customized spacing -->
-    <section class="example-card wide-card">
-        <ui-toggle label="Lorem ipsum dolor sit amat" labelSpacing="300px" [(checked)]="checkedSpacing2"></ui-toggle>
-        <div class="example-caption">Customized</div>
-    </section>
-</div>
-
-<!-- 🔹 Vertical spacing between toggles (stacked) -->
-<p class="example-subtitle">Vertical spacing between toggles (stacked)</p>
-<div class="example-row">
-    <!-- Default -->
-    <section class="example-card">
-        <ui-toggle label="Lorem ipsum dolor sit amat"></ui-toggle>
-        <ui-toggle label="Lorem ipsum dolor sit amat"></ui-toggle>
-        <ui-toggle label="Lorem ipsum dolor sit amat"></ui-toggle>
-        <div class="example-caption">Default: min 16px</div>
-    </section>
-
-    <!-- Customized -->
-    <section class="example-card custom-vertical outlined">
-        <ui-toggle label="Lorem ipsum dolor sit amat" labelSpacing="24px" verticalSpacing="32px"></ui-toggle>
-        <ui-toggle label="Lorem ipsum dolor sit amat" [checked]="true" labelSpacing="24px"
-            verticalSpacing="32px"></ui-toggle>
-        <ui-toggle label="Lorem ipsum dolor sit amat" labelSpacing="24px" verticalSpacing="32px"></ui-toggle>
-        <div class="example-caption">Customized</div>
-    </section>
-</div>
-
-<h3 class="example-title">Label position</h3>
-<div class="example-row">
-    <!-- Single-line: Center aligned -->
-    <section class="example-card">
-        <ui-toggle label="Lorem ipsum dolor sit amet" labelAlign="center"></ui-toggle>
-        <div class="example-caption">Center aligned</div>
-    </section>
-
-    <!-- Multi-line: Top aligned -->
-    <section class="example-card">
-        <ui-toggle label="Lorem ipsum dolor sit amet consectetur elit nec" labelAlign="top"></ui-toggle>
-        <div class="example-caption">Top aligned</div>
-    </section>
-</div>
-
-<h3 class="example-title">Clickable Area</h3>
-<div class="example-row">
-
-    <!-- Entire container clickable -->
-    <section class="example-card">
-        <ui-toggle label="Lorem ipsum dolor sit amet" [fullClickable]="true"></ui-toggle>
-        <p class="example-description">
-            Lorem ipsum dolor sit amet consectetur. Netus odio bibendum nascetur...
-        </p>
-        <div class="example-caption">Entire toggle container</div>
-    </section>
-
-    <!-- Only inner part clickable -->
-    <section class="example-card">
-        <ui-toggle label="Clickable Area" [fullClickable]="false"></ui-toggle>
-        <p class="example-description">
-            Lorem ipsum dolor sit amet consectetur. Netus odio bibendum nascetur...
-        </p>
-        <div class="example-caption">Entire toggle container</div>
-    </section>
-</div>
-
-<h3 class="example-title">Toggles in a Group – Multi-select</h3>
-<section class="example-card">
-    <ui-toggle label="Lorem ipsum dolor sit amat" [(checked)]="multi1"></ui-toggle>
-    <ui-toggle label="Lorem ipsum dolor sit amat" [(checked)]="multi2"></ui-toggle>
-    <ui-toggle label="Lorem ipsum dolor sit amat" [(checked)]="multi3"></ui-toggle>
-    <ui-toggle label="Lorem ipsum dolor sit amat" [(checked)]="multi4"></ui-toggle>
-    <ui-toggle label="Lorem ipsum dolor sit amat" [(checked)]="multi5"></ui-toggle>
-    <ui-toggle label="Lorem ipsum dolor sit amat" [(checked)]="multi6"></ui-toggle>
-    <div class="example-caption">Each toggle works independently</div>
-</section>
-<h3 class="example-title">Toggle Group – Single-select (Radio style)</h3>
-<section class="example-card wide-card">
-  <div class="radio-grid">
-    <div class="radio-column" *ngFor="let column of [0, 1]">
-      <ui-toggle
-        *ngFor="let item of radioOptions.slice(column * 3, column * 3 + 3)"
-        [label]="item.label"
-        [checked]="selectedRadioId === item.id"
-        (checkedChange)="selectRadio(item.id)"
-      ></ui-toggle>
-    </div>
+   
   </div>
-  <div class="example-caption">Only one toggle can be in ON mode at a time</div>
-</section>
+  
+  <form class="playground-form">
+    <h2>Toggle Settings</h2>
 
-<h3 class="example-title">
-  "All" Toggle (The main switch labeled "All" controls the entire group)
-</h3>
-<div class="example-row">
-  <!-- Group 1 -->
-  <section class="example-card toggle-pair-group">
-    <div
-      class="toggle-row"
-      *ngFor="let label of group1Labels; let i = index"
-    >
-      <span class="toggle-label">{{ label }}</span>
-      <ui-toggle
-        [(checked)]="group1[i]"
-        (checkedChange)="i === 0 ? setAll(group1[0], 'group1') : null"
-      ></ui-toggle>
-    </div>
-    <div class="example-caption">"All" ON → switch all toggles to ON</div>
-  </section>
+    <label>
+      Label:
+      <input type="text" [(ngModel)]="label" name="label">
+    </label>
 
-  <!-- Group 2 -->
-  <section class="example-card toggle-pair-group">
-    <div
-      class="toggle-row"
-      *ngFor="let label of group2Labels; let i = index"
-    >
-      <span class="toggle-label">{{ label }}</span>
-      <ui-toggle
-        [(checked)]="group2[i]"
-        (checkedChange)="i === 0 ? setAll(group2[0], 'group2') : null"
-      ></ui-toggle>
-    </div>
-    <div class="example-caption">"All" OFF → switch all toggles to OFF</div>
-  </section>
+    <label>
+      <input type="checkbox" [(ngModel)]="showHelp" name="showHelp"> Show Help
+    </label>
 
-  <!-- Group 3 -->
-  <section class="example-card toggle-pair-group">
-    <div
-      class="toggle-row"
-      *ngFor="let label of group3Labels; let i = index"
-    >
-      <span class="toggle-label">{{ label }}</span>
-      <ui-toggle
-        [(checked)]="group3[i]"
-        (checkedChange)="
-          i === 0 ? setAll(group3[0], 'group3') : onIndividualChange('group3')
-        "
-      ></ui-toggle>
-    </div>
-    <div class="example-caption">Any inactive toggle → "All" switches to OFF</div>
-  </section>
+    <label>
+      Help Tooltip:
+      <input type="text" [(ngModel)]="helpTooltip" name="helpTooltip">
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="truncateLabel" name="truncateLabel"> Truncate Label
+    </label>
+
+    <label>
+      Label Spacing:
+      <input type="text" [(ngModel)]="labelSpacing" name="labelSpacing">
+    </label>
+
+    <label>
+      Vertical Spacing:
+      <input type="text" [(ngModel)]="verticalSpacing" name="verticalSpacing">
+    </label>
+
+    <label>
+      Label Align:
+      <select [(ngModel)]="labelAlign" name="labelAlign">
+        <option value="center">Center</option>
+        <option value="top">Top</option>
+      </select>
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="fullClickable" name="fullClickable"> Full Clickable
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="checked" name="checked"> Checked
+    </label>
+  </form>
 </div>

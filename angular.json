@@ -32,11 +32,12 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "baseHref": "/toggle-playground/"
+            "scripts": []
+           
           },
           "configurations": {
             "production": {
+              "outputPath": "dist/toggle-playground",
               "budgets": [
                 {
                   "type": "initial",
@@ -49,7 +50,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+               "baseHref": "/toggle-playground/"
             },
             "development": {
               "optimization": false,
