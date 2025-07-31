@@ -1,0 +1,160 @@
+@use './../styles/colors.scss' as *;
+
+/* 📁 toggle.component.scss */
+
+.toggle-container {
+  display: inline-flex;
+  align-items: center; 
+  cursor: pointer;
+  user-select: none;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &.clickable {
+    cursor: pointer;
+  }
+
+  .toggle-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    &.truncate {
+      display: inline-block;
+      max-width: 200px; 
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .help-icon {
+    display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 11px;
+  font-weight: 600;
+  background-color: #000000; 
+  color: #ffffff;          
+  border-radius: 50%;
+  cursor: help;
+  line-height: 1;
+  user-select: none;
+  }
+  
+
+}
+
+.toggle-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 1px;
+  z-index: 1;
+  cursor: pointer;
+  user-select: none;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &.focus-visible {
+    box-shadow: 0 0 0 1px $toggle_color_focus_ring;
+  }
+
+  .toggle-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .toggle-slider {
+    width: 50px;
+    height: 16px;
+    background-color: $toggle_color_track_off_default;
+    border-radius: 9999px;
+    position: relative;
+    transition: background-color 0.2s ease;
+    outline: none;
+    margin: 4px 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 0px;
+      width: 24px;
+      height: 24px;
+      background-color: $toggle_color_thumb_background;
+      border-radius: 50%;
+      transition: transform 0.2s ease;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 6px;
+      width: 16px;
+      height: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+      display: none;
+      z-index: 2;
+    }
+
+    &:active {
+      background-color: $toggle_color_track_off_pressed;
+    }
+   
+  }
+
+  input:checked + .toggle-slider {
+    background-color: $toggle_color_track_on_default;
+
+    &::before {
+      transform: translateX(27px);
+    }
+
+    &::after {
+      display: block;
+    }
+
+    &:active {
+      background-color: $toggle_color_track_on_pressed;
+    }
+
+    &:hover {
+      background-color: $toggle_color_track_on_hover;
+    }
+  }
+
+  // 🔘 Hover, когда выключено (off)
+input:not(:checked):hover + .toggle-slider {
+  background-color: $toggle_color_track_off_hover;
+}
+
+// ✅ Hover, когда включено (on)
+input:checked:hover + .toggle-slider {
+  background-color: $toggle_color_track_on_hover;
+}
+
+}
+

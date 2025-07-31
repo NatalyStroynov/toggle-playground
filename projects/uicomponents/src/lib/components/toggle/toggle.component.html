@@ -1,0 +1,35 @@
+<label class="toggle-container" [class.disabled]="disabled"  
+    [style.gap]="labelSpacing"
+    [style.marginBottom]="verticalSpacing"
+    [style.alignItems]="labelAlign"
+    [class.clickable]="fullClickable"
+    (click)="fullClickable ? toggle() : null"
+     >
+  <span class="toggle-label" *ngIf="label" [class.truncate]="truncateLabel">
+    {{ label }}
+    <span
+        *ngIf="showHelp"
+        class="help-icon"
+        [title]="helpTooltip"
+        aria-label="Help"
+        role="tooltip"
+    >?</span>
+    </span>
+
+  <span class="toggle-wrapper" 
+        [class.focus-visible]="isFocused"
+        [class.disabled]="disabled"
+        (click)="$event.stopPropagation()"
+        >
+    <input
+      type="checkbox"
+      class="toggle-input"
+      [checked]="checked"
+      [disabled]="disabled"
+      (change)="toggle()"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+    />
+    <span class="toggle-slider"></span>
+  </span>
+</label>

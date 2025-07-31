@@ -1,0 +1,31 @@
+// 📁 styles/colors.scss
+
+// Base colors
+$gray_100: #fafafa;
+$gray_200: #d9d9d9;
+$gray_300: #999999;
+$gray_400: #767676;
+$gray_500: #434343;
+$black: #000000;
+$black_10: #0000001a;
+$black_25: #00000040;
+$white: #ffffff;
+$blue_100: #040eff;
+$teal_100: #99dcd8;
+$teal_200: #00a79d;
+$teal_300: #00746d;
+$teal_400: #035752;
+
+// Toggle tokens
+$toggle_color_track_off_default: $gray_300;
+$toggle_color_track_off_hover: $gray_400;
+$toggle_color_track_off_pressed: $gray_500;
+$toggle_color_track_off_disabled: $gray_200;
+$toggle_color_track_on_default: $teal_200;
+$toggle_color_track_on_hover: $teal_300;
+$toggle_color_track_on_pressed: $teal_400;
+$toggle_color_track_on_disabled: $teal_100;
+$toggle_color_thumb_background: $gray_100;
+$toggle_color_icon: $white;
+$toggle_shadow_thumb: $black_25;
+$toggle_color_focus_ring: $blue_100;
